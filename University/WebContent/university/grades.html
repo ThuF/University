@@ -51,11 +51,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="selected-{{entry._selected_}}" ng-repeat="entry in data"
-						ng-click="showInfoForEntry(entry)">
+					<tr class="selected-{{entry._selected_}}" ng-repeat="entry in data" ng-click="showInfoForEntry(entry)">
 						<td>{{entry.id}}</td>
-						<td>{{entry.student_id}}</td>
-						<td>{{entry.subject_id}}</td>
+						<td>{{getStudentName(entry.student_id)}}</td>
+						<td>{{getSubjectName(entry.subject_id)}}</td>
 						<td>{{entry.grade}}</td>
 					</tr>
 				</tbody>
@@ -83,11 +82,11 @@
 				  </div>
 				  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 					<label>Student</label>
-					<input type="number" class="form-control text-right" pattern="\d*" step="1" ng-model="selectedEntry.student_id" ng-readonly="operation == 'show'" required="required">
+					<select class="form-control" ng-model="selectedEntry.student_id" ng-options="option.id as (option.first_name + ' ' + option.last_name) for option in allStudents" ng-readonly="operation == 'show'" required="required"></select>
 				  </div>
 				  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 					<label>Subject</label>
-					<input type="number" class="form-control text-right" pattern="\d*" step="1" ng-model="selectedEntry.subject_id" ng-readonly="operation == 'show'" required="required">
+					<select class="form-control" ng-model="selectedEntry.subject_id" ng-options="option.id as option.name for option in allSubjects" ng-readonly="operation == 'show'" required="required"></select>
 				  </div>
 				  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 					<label>Grade</label>
@@ -115,22 +114,42 @@
 		angular.module('page').controller('ManageController', function ($scope, $http) {
 			
 			var url = '../../js/university/grades.js';
-
-			$http.get(url)
-				.success(function(data){
-					$scope.data = data;
-				});
-			
-			/* ---- Uncomment and configure in case of using dropdown or list widgets in the form above  ----
-			
-			var urlRefs = 'ENDPOINT_OF_THE_REFS_SERVICE'; // e.g. '../../js/mypackage/mytypes.js'
+			const STUDENTS_URL = '../../js/university/students.js';
+			const SUBJECTS_URL = '../../js/university/subjects.js';
 				
-			$http.get(urlRefs)
-				.success(function(refs){
-					$scope.refs = refs;
-				});
-			*/
+			$scope.allStudents = [];
+			$scope.allSubjects = [];
+
+			$http.get(url).success(function(data) {
+				$scope.data = data;
+			});
 			
+			$http.get(STUDENTS_URL).success(function(allStudents) {
+				$scope.allStudents = allStudents;
+			});
+
+			$http.get(SUBJECTS_URL).success(function(allSubjects) {
+				$scope.allSubjects = allSubjects;
+			});
+
+			$scope.getStudentName = function(id) {
+				for (var i = 0 ; i < $scope.allStudents.length; i ++) {
+					if ($scope.allStudents[i].id === id) {
+						return $scope.allStudents[i].first_name + $scope.allStudents[i].last_name;
+					}
+				}
+				return id;
+			};
+
+			$scope.getSubjectName = function(id) {
+				for (var i = 0 ; i < $scope.allSubjects.length; i ++) {
+					if ($scope.allSubjects[i].id === id) {
+						return $scope.allSubjects[i].name;
+					}
+				}
+				return id;
+			};
+
 			$scope.selectedEntry;
             $scope.operation = 'show';
             $scope.errorMessage = null;
