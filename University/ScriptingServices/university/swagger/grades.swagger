@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "GRADES Entity Service",
+        "description":"This is a RESTful web service for listing, viewing and managing entities of the type 'GRADES'"
+    },
+    "basePath":"/services",
+    "tags":[
+      {
+         "name":"GRADES",
+         "description":"View and manage GRADES objects"
+      }
+    ],
+    "paths": {
+        "/js/university/grades.js": {
+            "get": {
+            	"tags":[
+               		"GRADES"
+            	],
+                "description": "Gets 'GRADES' objects.\n",
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Count of all the records",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "${primaryKey.getName().toLowerCase()}",
+                        "in": "query",
+                        "description": "Identifier of the 'GRADES' object",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "metadata",
+                        "in": "query",
+                        "description": "Metadata of the 'GRADES' object",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit of the objects list",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset of the objects list",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort parameter",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "desc",
+                        "in": "query",
+                        "description": "Descending order",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/GRADES"
+                        }
+                    }
+                }
+            },
+            "post": {
+            	"tags":[
+               		"GRADES"
+            	],
+                "description": "Creates a new 'GRADES' object.\n",
+                "consumes":[
+	               "application/json"
+	            ],
+	            "produces":[
+	               "plain/text"
+	            ],
+	            "parameters":[
+	               {
+	                  "in":"body",
+	                  "name":"body",
+	                  "description":"GRADES object that needs to be added",
+	                  "required":true,
+	                  "schema":{
+	                     "$ref":"#/definitions/GRADES"
+	                  }
+	               }
+	            ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/GRADES"
+                        }
+                    }
+                }
+            },
+            "put": {
+            	"tags":[
+               		"GRADES"
+            	],
+                "description": "Updates an existing 'GRADES' object.\n",
+                "consumes":[
+	               "application/json"
+	            ],
+	            "produces":[
+	               "plain/text"
+	            ],
+	            "parameters":[
+	               {
+	                  "in":"body",
+	                  "name":"body",
+	                  "description":"GRADES object that needs to be added",
+	                  "required":true,
+	                  "schema":{
+	                     "$ref":"#/definitions/GRADES"
+	                  }
+	               }
+	            ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/GRADES"
+                        }
+                    }
+                }
+            },
+            "delete": {
+            	"tags":[
+               		"GRADES"
+            	],
+                "description": "Deletes 'GRADES' objects.\n",
+                "parameters": [
+                    {
+                        "name": "${primaryKey.getName().toLowerCase()}",
+                        "in": "query",
+                        "description": "Identifier of the 'GRADES' object",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/GRADES"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "GRADES": {
+	        "type":"object",
+	        "properties": {
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+	        }
+        }
+	}
+}

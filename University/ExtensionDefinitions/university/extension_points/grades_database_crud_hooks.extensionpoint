@@ -1,0 +1,4 @@
+{
+  "extension-point":"/university/extension_points/grades_database_crud_hooks",
+  "description":"Database CRUD hooks for the '/ScriptingServices/university/grades.js' service, managing the 'GRADES' table"
+}

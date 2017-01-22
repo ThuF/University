@@ -1,0 +1,4 @@
+{
+  "extension-point": "/university/extension_point/launchpad",
+  "description": "Launchpad extension point. Defined functions: getMenuItem(): JSON Object | getHomeItem(): JSON Object|"
+}

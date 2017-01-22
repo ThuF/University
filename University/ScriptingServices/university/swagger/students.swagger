@@ -1,0 +1,203 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.0",
+        "title": "STUDENTS Entity Service",
+        "description":"This is a RESTful web service for listing, viewing and managing entities of the type 'STUDENTS'"
+    },
+    "basePath":"/services",
+    "tags":[
+      {
+         "name":"STUDENTS",
+         "description":"View and manage STUDENTS objects"
+      }
+    ],
+    "paths": {
+        "/js/university/students.js": {
+            "get": {
+            	"tags":[
+               		"STUDENTS"
+            	],
+                "description": "Gets 'STUDENTS' objects.\n",
+                "parameters": [
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "Count of all the records",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "${primaryKey.getName().toLowerCase()}",
+                        "in": "query",
+                        "description": "Identifier of the 'STUDENTS' object",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "metadata",
+                        "in": "query",
+                        "description": "Metadata of the 'STUDENTS' object",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit of the objects list",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset of the objects list",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort parameter",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "desc",
+                        "in": "query",
+                        "description": "Descending order",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/STUDENTS"
+                        }
+                    }
+                }
+            },
+            "post": {
+            	"tags":[
+               		"STUDENTS"
+            	],
+                "description": "Creates a new 'STUDENTS' object.\n",
+                "consumes":[
+	               "application/json"
+	            ],
+	            "produces":[
+	               "plain/text"
+	            ],
+	            "parameters":[
+	               {
+	                  "in":"body",
+	                  "name":"body",
+	                  "description":"STUDENTS object that needs to be added",
+	                  "required":true,
+	                  "schema":{
+	                     "$ref":"#/definitions/STUDENTS"
+	                  }
+	               }
+	            ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/STUDENTS"
+                        }
+                    }
+                }
+            },
+            "put": {
+            	"tags":[
+               		"STUDENTS"
+            	],
+                "description": "Updates an existing 'STUDENTS' object.\n",
+                "consumes":[
+	               "application/json"
+	            ],
+	            "produces":[
+	               "plain/text"
+	            ],
+	            "parameters":[
+	               {
+	                  "in":"body",
+	                  "name":"body",
+	                  "description":"STUDENTS object that needs to be added",
+	                  "required":true,
+	                  "schema":{
+	                     "$ref":"#/definitions/STUDENTS"
+	                  }
+	               }
+	            ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/STUDENTS"
+                        }
+                    }
+                }
+            },
+            "delete": {
+            	"tags":[
+               		"STUDENTS"
+            	],
+                "description": "Deletes 'STUDENTS' objects.\n",
+                "parameters": [
+                    {
+                        "name": "${primaryKey.getName().toLowerCase()}",
+                        "in": "query",
+                        "description": "Identifier of the 'STUDENTS' object",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema":{
+		                     "$ref":"#/definitions/STUDENTS"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "STUDENTS": {
+	        "type":"object",
+	        "properties": {
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+				,
+        		"${tableColumn.getName().toLowerCase()}": {
+	            	"type": 
+    // not supported type -> set to string
+    	"string" 
+	    		}
+	        }
+        }
+	}
+}

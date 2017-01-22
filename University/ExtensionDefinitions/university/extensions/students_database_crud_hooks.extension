@@ -1,0 +1,5 @@
+{
+  "extension":"/university/extensions/studentsExtension",
+  "extension-point":"/university/extension_points/students_database_crud_hooks",
+  "description":"Database CRUD extension for the '/ScriptingServices/university/students.js' service, managing the 'STUDENTS' table"
+}

@@ -1,0 +1,15 @@
+{
+  "entityName":"STUDENTS",
+  "tableName":"STUDENTS",
+  "tableType":"table",
+  "serviceName":"students.js",
+  "libraryName":"students_lib.js",
+  "specification":"students.swagger",
+  "getEnabled":"true",
+  "postEnabled":"true",
+  "putEnabled":"true",
+  "deleteEnabled":"true",
+  "countEnabled":"true",
+  "offsetAndLimitEnabled":"true",
+  "metadataEnabled":"true"
+}

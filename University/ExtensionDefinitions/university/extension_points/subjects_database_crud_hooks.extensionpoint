@@ -1,0 +1,4 @@
+{
+  "extension-point":"/university/extension_points/subjects_database_crud_hooks",
+  "description":"Database CRUD hooks for the '/ScriptingServices/university/subjects.js' service, managing the 'SUBJECTS' table"
+}

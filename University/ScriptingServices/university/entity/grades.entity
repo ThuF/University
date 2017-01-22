@@ -1,0 +1,15 @@
+{
+  "entityName":"GRADES",
+  "tableName":"GRADES",
+  "tableType":"table",
+  "serviceName":"grades.js",
+  "libraryName":"grades_lib.js",
+  "specification":"grades.swagger",
+  "getEnabled":"true",
+  "postEnabled":"true",
+  "putEnabled":"true",
+  "deleteEnabled":"true",
+  "countEnabled":"true",
+  "offsetAndLimitEnabled":"true",
+  "metadataEnabled":"true"
+}
