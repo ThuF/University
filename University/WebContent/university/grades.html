@@ -135,7 +135,7 @@
 			$scope.getStudentName = function(id) {
 				for (var i = 0 ; i < $scope.allStudents.length; i ++) {
 					if ($scope.allStudents[i].id === id) {
-						return $scope.allStudents[i].first_name + $scope.allStudents[i].last_name;
+						return $scope.allStudents[i].first_name + ' ' + $scope.allStudents[i].last_name;
 					}
 				}
 				return id;
